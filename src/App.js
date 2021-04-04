@@ -2,8 +2,20 @@ import './App.css';
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
-import { Container, Typography, Button, Box, Tooltip, IconButton, Toolbar, Paper, Grid, Link } from '@material-ui/core';
+import { Container, Typography, Button, Box, Tooltip, IconButton, Toolbar, Paper, Grid, Link,
+  Card, CardMedia, CardContent } from '@material-ui/core';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+
+const sections = [
+  { title: 'New Arrivals', url: '#' },
+  { title: 'Final Stock', url: '#' },
+  { title: 'Best Sellers', url: '#' },
+  { title: 'Clothing', url: '#' },
+  { title: 'Objects', url: '#' },
+  { title: 'Face Masks', url: '#' },
+];
+
+const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,13 +50,35 @@ const useStyles = makeStyles((theme) => ({
   mainContent: {
     position: "relative"
   },
+  toolbarSecondary: {
+    justifyContent: 'space-between',
+    overflowX: 'auto',
+  },
+  toolbarLink: {
+    padding: theme.spacing(1),
+    flexShrink: 0,
+  },
+  cardGrid: {
+    paddingTop: theme.spacing(8),
+    paddingBottom: theme.spacing(8),
+  },
+  card: {
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  cardMedia: {
+    paddingTop: '120%',
+  },
+  cardContent: {
+    flexGrow: 1,
+  },
 }))
 
 function App() {
 
   const classes = useStyles();
 
- 
   return (
     <div >
       <AppBar position="static" className={classes.header} > 
@@ -87,6 +121,52 @@ function App() {
             </Grid>
           </Container>
         </Paper>
+
+        <section>
+          <Container maxWidth="md">
+            <Toolbar component="nav" variant="dense" className={classes.toolbarSecondary}>
+              {sections.map((section) => (
+                <Link
+                  color="inherit"
+                  noWrap
+                  key={section.title}
+                  variant="body2"
+                  href={section.url}
+                  className={classes.toolbarLink}
+                >
+                {section.title}
+                </Link>
+              ))}
+            </Toolbar>
+          </Container>
+        </section>
+
+        <section>
+          <Container className={classes.cardGrid} maxWidth="md">
+            <Grid container spacing={4}>
+              {cards.map((card) => (
+                <Grid item key={card} xs={12} sm={4} md={3}>
+                  <Card className={classes.card}>
+                    <CardMedia
+                      className={classes.cardMedia}
+                      image="https://source.unsplash.com/random"
+                      title="Image title"
+                    />
+                    <CardContent className={classes.cardContent}>
+                      <Link gutterBottom variant="h7" component="p" color="inherit">
+                        Preorder - Analog Wood Card Holder
+                      </Link>
+                      <Typography  variant="h8" component="p">
+                        $59.00
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </Grid>
+              ))}
+            </Grid>
+        </Container>
+        </section>
+
       </main>
     </div>
     
