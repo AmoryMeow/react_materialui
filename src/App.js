@@ -3,7 +3,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import { Container, Typography, Button, Box, Tooltip, IconButton, Toolbar, Paper, Grid, Link,
-  Card, CardMedia, CardContent } from '@material-ui/core';
+  Card, CardMedia, CardContent, CardActionArea } from '@material-ui/core';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 
 const sections = [
@@ -79,7 +79,36 @@ const useStyles = makeStyles((theme) => ({
   cardVert: {
     paddingTop: '100%',
   },
-
+  darkBg: {
+    backgroundColor: "#CED3CA",
+    padding: theme.spacing(8),
+    borderRadius: 0,
+  },
+  frame: {
+    display: 'flex',
+    margin: theme.spacing(2),
+  },
+  frameDetails: {
+    flex: 1,
+    padding: theme.spacing(4),
+  },
+  frameMedia: {
+    width: '66%',
+  },
+  story: {
+    position: "relative",
+    paddingTop: theme.spacing(12),
+    paddingBottom: theme.spacing(10),
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    color: theme.palette.common.white,
+  },
+  footer: {
+    backgroundColor: theme.palette.background.paper,
+    marginTop: theme.spacing(8),
+    padding: theme.spacing(6, 0),
+  },
 }))
 
 function App() {
@@ -176,6 +205,31 @@ function App() {
 
         <section>
           <Container maxWidth="md" >
+            <Paper className={classes.darkBg} spacing={4}>
+              <CardActionArea component="a" href="#">
+                <Card className={classes.frame}>
+                  <div className={classes.frameDetails}>
+                    <CardContent>
+                      <Typography component="h2" variant="h5">
+                        Final Stock - Up to 50% Off
+                      </Typography>
+                      <Link variant="subtitle1"  color="inherit">
+                        Shop the sale →
+                      </Link>
+                    </CardContent>
+                  </div>
+                  <CardMedia className={classes.frameMedia} 
+                    image={'https://source.unsplash.com/random'} 
+                    title={'title'}
+                  />
+                </Card>
+              </CardActionArea>
+            </Paper>
+          </Container>
+        </section>
+
+        <section>
+          <Container maxWidth="md" className={classes.cardGrid}>
             <Grid container maxWidth="sm" justify="center" spacing={4}>
               <Grid item md={6}>               
                   <Typography component="p" variant="h5" align="center">
@@ -231,9 +285,75 @@ function App() {
           </Container>
         </section>
 
+        <section>
+          <Container maxWidth="md" >
+            <Paper className={classes.darkBg} >
+              <CardActionArea component="a" href="#">
+                <Card className={classes.frame}>
+                  <div className={classes.frameDetails}>
+                    <CardContent>
+                      <Typography component="h2" variant="h5">
+                        Gather
+                      </Typography>
+                      <Typography variant="subtitle1" paragraph>
+                        The minimal, modular desk organizer that cuts through the clutter
+                      </Typography >
+                      <Link variant="subtitle1"  color="inherit">
+                        Shop Gather →
+                      </Link>
+                    </CardContent>
+                  </div>
+                  <CardMedia className={classes.frameMedia} 
+                    image={'https://source.unsplash.com/random'} 
+                    title={'title'}
+                  />
+                </Card>
+              </CardActionArea>
+            </Paper>
+          </Container>
+        </section>
+
+        <section>
+          <Container maxWidth="md" >
+            <Paper className={classes.story} style={{backgroundImage: `url(https://source.unsplash.com/random)`}} >
+              <div className={classes.overlay}/>
+              <Grid container justify="center">
+                <Grid item md={8} align="center">
+                  <div className={classes.mainContent}>
+                    <Typography component="p" variant="h5" >
+                      A design studio in Downingtown, PA, creating and curating products that combine form & function
+                    </Typography>
+                    <Link color="inherit">Read Our Story →</Link>
+                  </div>
+                </Grid>
+              </Grid>
+            </Paper>
+          </Container>
+        </section>
       </main>
+
+      <footer className={classes.footer}>
+        <Container maxWidth="lg">
+          <Typography variant="h6" align="center" gutterBottom>
+            UGMONK
+          </Typography>
+          <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
+            All images and content may not be used without permission
+          </Typography>
+          <Typography variant="body2" color="textSecondary" align="center">
+            {'Copyright © '}
+            <Link color="inherit" href="https://material-ui.com/">
+              Ugmonk
+            </Link>{' '}
+            {new Date().getFullYear()}
+            {'.'}
+          </Typography>
+        </Container>
+      </footer>
+
     </div>
     
+
   );
 }
 
