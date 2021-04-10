@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-function Banner({title, subtitle, linkText}) {
+function Banner({title, subtitle, linkText, img}) {
 
   const classes = useStyles();
 
@@ -46,7 +46,7 @@ function Banner({title, subtitle, linkText}) {
                 </CardContent>
               </div>
               <CardMedia className={classes.frameMedia} 
-                image={'https://source.unsplash.com/random'} 
+                image={img}
                 title={'title'}
               />
             </Card>

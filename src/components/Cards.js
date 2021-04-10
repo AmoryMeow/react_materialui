@@ -21,10 +21,8 @@ function Cards({cards}) {
         <Grid container spacing={4}>
           {cards.map((card) => (
             <CardItem
-              key={card}
+              key={card.id}
               card={card}
-              title={'Preorder - Analog Wood Card Holder'}
-              subtitle={'$59.00'}
             />
           ))}
         </Grid>

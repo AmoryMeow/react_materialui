@@ -1,16 +1,18 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Typography, Paper, Grid, Link, } from '@material-ui/core';
+import coverImg from '../images/Cover.jpg';
 
 const useStyles = makeStyles((theme) => ({
   mainImg: {
     position: "relative",
     paddingTop: theme.spacing(20),
     paddingBottom: theme.spacing(3),
+    color: theme.palette.common.white,
+    backgroundImage: `url(${coverImg})`,
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
-    color: theme.palette.common.white,
   },
   overlay: {
     position: "absolute",
@@ -28,9 +30,8 @@ const useStyles = makeStyles((theme) => ({
 function Cover() {
 
   const classes = useStyles();
-
   return (
-    <Paper  className={classes.mainImg} style={{backgroundImage: `url(https://source.unsplash.com/random)`}}>
+    <Paper className={classes.mainImg} style={{backgroundImage: `url(${coverImg})`} } >
       <Container maxWidth="md">
         <div className={classes.overlay}/>
         <Grid container>

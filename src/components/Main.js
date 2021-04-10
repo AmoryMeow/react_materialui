@@ -6,6 +6,8 @@ import Cards from './Cards';
 import Banner from './Banner';
 import Blocks from './Blocks';
 import Story from './Story';
+import finalStock from '../images/Final Stock.jpg';
+import gather from '../images/Gather.jpg';
 
 const useStyles = makeStyles((theme) => ({
 
@@ -23,12 +25,14 @@ function Main({sections, cards}) {
       <Banner
         title={'Final Stock - Up to 50% Off'}
         linkText={'Shop the sale →'}
+        img={finalStock}
       />
       <Blocks />
       <Banner
         title={'Gather'}
         subtitle={'The minimal, modular desk organizer that cuts through the clutter'}
-        linkText={'Shop Gather →'}
+        linkText={'Shop Gather →'} //
+        img={gather}
       />
       <Story />
     </main>

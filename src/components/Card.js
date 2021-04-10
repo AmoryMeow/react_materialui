@@ -16,24 +16,24 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-function CardItem({card, title, subtitle}) {
+function CardItem({card}) {
 
   const classes = useStyles();
 
   return (
     <Grid item xs={12} sm={4} md={3}>
-      <Card className={classes.card}>
+      <Card className={classes.card} variant="elevation" elevation={0}>
         <CardMedia
           className={classes.cardMedia}
-          image="https://source.unsplash.com/random"
-          title="Image title"
+          image={card.img}
+          title={card.title}
         />
         <CardContent className={classes.cardContent}>
           <Link gutterBottom variant="subtitle1" component="p" color="inherit">
-            {title}
+            {card.title}
           </Link>
           <Typography  variant="subtitle2" component="p">
-            {subtitle}
+            {card.price}
           </Typography>
         </CardContent>
       </Card>

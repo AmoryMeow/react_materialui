@@ -7,14 +7,14 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: '50%',
   },
   vertical: {
-    paddingTop: '100%',
+    paddingTop: '130%',
   },
   cardContent: {
     flexGrow: 1,
   },
 }))
 
-function Block({blockWidth, caption, orienatation}) {
+function Block({blockWidth, caption, orienatation, img}) {
     
   const classes = useStyles();
   
@@ -23,7 +23,7 @@ function Block({blockWidth, caption, orienatation}) {
       <Card variant="elevation" elevation={0}>
         <CardMedia
           className={classes[orienatation]}
-          image="https://source.unsplash.com/random"
+          image={img}
           title="Image title"
         />
         <CardContent className={classes.cardContent}>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Container, Typography, Paper, Grid, Link, } from '@material-ui/core';
+import storyImg from '../images/Story.jpg';
 
 const useStyles = makeStyles((theme) => ({
   story: {
@@ -32,7 +33,7 @@ function Story() {
   return (
     <section>
           <Container maxWidth="md" >
-            <Paper className={classes.story} style={{backgroundImage: `url(https://source.unsplash.com/random)`}} >
+            <Paper className={classes.story} style={{backgroundImage: `url(${storyImg})`} } >
               <div className={classes.overlay}/>
               <Grid container justify="center">
                 <Grid item md={8} align="center">

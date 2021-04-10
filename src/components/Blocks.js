@@ -1,8 +1,10 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Container, Typography, Grid, Link,
-  Card, CardMedia, CardContent, } from '@material-ui/core';
+import { Container, Typography, Grid, } from '@material-ui/core';
 import Block from './Block';
+import shopMens from '../images/Shop Mens.jpg';
+import shopObjects from '../images/Shop Objects.jpg';
+import shopWomens from '../images/Shop Womens.jpg';
 
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
@@ -38,18 +40,21 @@ function Blocks() {
             blockWidth={6}
             caption={'Shop Mens →'}
             orienatation={'vertical'}
+            img={shopMens}
           />
 
           <Block
             blockWidth={6}
             caption={'Shop Womens →'}
             orienatation={'vertical'}
+            img={shopWomens}
           />
 
           <Block
             blockWidth={12}
             caption={'Shop Objects →'}
             orienatation={'horizontal'}
+            img={shopObjects}
           />        
 
         </Grid>
